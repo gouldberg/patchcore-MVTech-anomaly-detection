@@ -206,7 +206,7 @@ feature_sampler = ApproximateGreedyCoresetSampler(
 # ----------------------------------------------------------------------------------------------------------------
 
 # data_path = '/media/kswada/MyFiles/dataset/mvtec_ad'
-data_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\mvtec_ad'
+data_path = '~/mvtec_ad/mvtec_ad'
 mvtec_classname = 'screw'
 # mvtec_classname = 'tmp'
 

@@ -16,7 +16,7 @@ from src2.mvtec import IMAGENET_MEAN as normalizer_mean
 from src2.mvtec import IMAGENET_STD as normalizer_std
 
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\patchcore'
+base_path = '~/mvtec_ad/patchcore'
 
 
 ##################################################################################################################
@@ -112,7 +112,7 @@ backbone = backbone.to(device)
 # tflite extractor
 # ----------------------------------------------------------------------------------------------------------------
 
-tflite_model_path = os.path.join(base_path, 'model\\model_ext_f32.tflite')
+tflite_model_path = os.path.join(base_path, 'model/model_ext_f32.tflite')
 dim_by_layer = [[1, 32, 28, 28], [1, 64, 14, 14]]
 
 extractor_tflite = feature_extractor_tflite(
@@ -227,7 +227,7 @@ feature_sampler = ApproximateGreedyCoresetSampler(
 # ----------------------------------------------------------------------------------------------------------------
 
 # data set path
-data_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\mvtec_ad2'
+data_path = '~/mvtec_ad/mvtec_ad2'
 
 # mvtec_classname = 'screw'
 mvtec_classname = 'tmp'
