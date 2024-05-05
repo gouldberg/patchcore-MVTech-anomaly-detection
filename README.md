@@ -9,5 +9,5 @@
   - see for scripts in folder '00_patchcore_details_check_step_by_step'
 - When you need **data augmentation**
   - see (for some help) scripts in folder '00_data_preparation_with_image_processing'
-- main driver scripts are in folder 'main'
-- 'src' and 'src2' is almost totally from original patchcore codes.
+- 'main' folder:  driver scripts
+- 'src' and 'src2' folder: almost totally from original patchcore codes.
