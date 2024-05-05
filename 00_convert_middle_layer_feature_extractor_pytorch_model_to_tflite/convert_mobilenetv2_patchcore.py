@@ -5,7 +5,6 @@ import os
 import time
 import cv2
 
-# 20230130 本多追加 wideresnet50 の検証用
 import torchvision.models as models
 
 if 'INTEL_OPENVINO_DIR' not in os.environ:
@@ -30,21 +29,7 @@ class Converter:
         self.image_path = args.image_path
 
         ####################################################
-        # 崔さんのオリジナル
-        #self.layer_names = ['blocks.5.0.act2', 'act2']
-        
-        # 本多追加：PatchCore用の mobilenetv2 のレイヤーで試してみる
         self.layer_names = ['blocks.2', 'blocks.3']
-
-        # 本多追加：PatchCore用の wideresnet50 のレイヤーで試してみる
-        #self.layer_names = ['layer2', 'layer3']
-
-        # 本多追加：20230131 PatchCore用の mobilenetv2 のレイヤーで試してみる -> NG
-        #self.layer_names = ['blocks.2.2', 'blocks.3.3']
-        #self.layer_names = ['blocks.2.2.bn3.act', 'blocks.3.3.bn3.act']
-        
-        # 本多追加：20230201 PatchCore用の mobilenetv2 のレイヤーで試してみる
-        #self.layer_names = ['blocks.2.2.bn3', 'blocks.3.3.bn3']
         ####################################################
 
         self.exp_path = f'static/{self.expid}'
@@ -85,12 +70,9 @@ class Converter:
     def load_pytorch_model(self):
 
         ####################################################
-        # 既存の mobilenetv2 pretrainedモデルで試してみる
         pytorch_model = timm.create_model('mobilenetv2_100', pretrained=True)
         #pytorch_model = timm.create_model('mobilenetv2_100', pretrained=False)
         #pytorch_model.load_state_dict(torch.load(self.pytorch_model_path, map_location='cpu'))
-
-        # 既存の wideresnet50 pretrainedモデルで試してみる
         #pytorch_model = models.wide_resnet50_2(pretrained=True)
 
         self.pytorch_model = pytorch_model

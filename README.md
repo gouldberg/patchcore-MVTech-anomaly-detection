@@ -1,6 +1,13 @@
 # patchcore-MVTech-anomaly-detection
-
-- オリジナルの patchcore のコードから必要な箇所をもってきて、自身が使いやすくしてみました。
-- wideresnet だけでなく、mobilenet の中間層を使って軽量化もできるように
-- mobilenet の場合、チャネル数少なくなるので、他の箇所のパラメタを変える必要あり
-- 当時は、tflite 8ビット軽量化も実施した（pytorch --> tensorflow変換も必要）
+- I have rearranged original patchcore codes (https://github.com/amazon-science/patchcore-inspection) in order to apply this State-of-the-Art approach more freely/lightly.
+- Also I have tried to re-engineer it to make the model/approach applicable to edge device
+  - **lighter feature extractor applicable edge device, preferring MobileNet** over WideResnet originally applied in patchcore. But some parameter tuning is required due to narrow channels of MobileNet.
+  - **convert pytorch model to tflite model (8 bit model)** via onnix converter.
+  - **the relevant scripts are found in folder**:
+    - '00_convert_middle_layer_feature_extractor_pytorch_model_to_tflite'
+- I researched, **in details step-by-step, how patchcore works**
+  - see for scripts in folder '00_patchcore_details_check_step_by_step'
+- When you need **data augmentation**
+  - see (for some help) scripts in folder '00_data_preparation_with_image_processing'
+- main driver scripts are in folder 'main'
+- 'src' and 'src2' is almost totally from original patchcore codes.

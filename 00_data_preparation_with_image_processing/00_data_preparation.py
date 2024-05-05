@@ -18,7 +18,7 @@ import time
 # all test/defective_type into test/ng
 # -------------------------------------------------------------------------------------------------------------
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
 # data_path = os.path.join(base_path, 'mvtec_ad2')
 data_path = os.path.join(base_path, 'mpdd')
@@ -60,18 +60,18 @@ for cls_obj in mvtec_class:
 # decrease resolution
 # -------------------------------------------------------------------------------------------------------------
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
 # data_path = os.path.join(base_path, 'mvtec_ad_512128')
 # data_path = os.path.join(base_path, 'mvtec_ad_512192')
-# data_path = os.path.join(base_path, 'ksi_448173')
+# data_path = os.path.join(base_path, 'kw_448173')
 data_path = os.path.join(base_path, 'image_ks\\flexcable')
 
 # texture_classes = ["carpet", "grid", "leather", "tile", "wood"]
 # object_classes = ["cable", "capsule", "hazelnut", "metal_nut", "pill", "screw", "toothbrush", "transistor", "zipper"]
 # others = ["bottle"]
 
-# others = ['ksiflexfront', 'ksiflexleft', 'ksiflexright']
+# others = ['kwflexfront', 'kwflexleft', 'kwflexright']
 others = ['fccase5']
 
 # mvtec_class = texture_classes + object_classes + others
@@ -119,14 +119,14 @@ for cls_obj in mvtec_class:
 
 import albumentations as A
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
 data_path = os.path.join(base_path, 'mvtec_ad2')
-# data_path = os.path.join(base_path, 'ksi')
+# data_path = os.path.join(base_path, 'kw')
 
-# cls_obj = 'ksiflexright_224rotate15'
-# cls_obj = 'ksiflexfront_224rotate15'
-# cls_obj = 'ksiflexleft_224rotate15'
+# cls_obj = 'kwflexright_224rotate15'
+# cls_obj = 'kwflexfront_224rotate15'
+# cls_obj = 'kwflexleft_224rotate15'
 cls_obj = 'flexcrop3'
 
 folder_obj_cls = os.path.join(data_path, cls_obj, 'train\\good')
@@ -168,22 +168,22 @@ for i in range(len(img_list)):
 
 ###############################################################################################################
 # -------------------------------------------------------------------------------------------------------------
-# data augmentation:  ksi flex crop
+# data augmentation:  kw flex crop
 # -------------------------------------------------------------------------------------------------------------
 
 import albumentations as A
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
-data_path = os.path.join(base_path, 'ksi')
+data_path = os.path.join(base_path, 'kw')
 
 # cls_obj = 'flexcrop2front_aug10rotate15'
 # cls_obj = 'flexcrop2left_aug10rotate15'
 # cls_obj = 'flexcrop2right_aug10rotate15'
 
-# cls_obj = 'ksiflexfront2_aug10rotate15'
-# cls_obj = 'ksiflexleft2_aug10rotate15'
-# cls_obj = 'ksiflexright2_aug10rotate15'
+# cls_obj = 'kwflexfront2_aug10rotate15'
+# cls_obj = 'kwflexleft2_aug10rotate15'
+# cls_obj = 'kwflexright2_aug10rotate15'
 
 # cls_obj = 'flexcrop2front_anime'
 # cls_obj = 'flexcrop2left_anime'
@@ -358,9 +358,9 @@ def anime_filter2(img, K):
 
 
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
-data_path = os.path.join(base_path, 'ksi')
+data_path = os.path.join(base_path, 'kw')
 
 cls_obj = 'flexcrop2front_aug10rotate15'
 # cls_obj = 'flexcrop2left_aug10rotate15'
@@ -423,14 +423,14 @@ PIL.Image.fromarray(cv2.cvtColor(sure_bg, cv2.COLOR_BGR2RGB)).show()
 
 ###############################################################################################################
 # -------------------------------------------------------------------------------------------------------------
-# data augmentation:  ksi sun frare
+# data augmentation:  kw sun frare
 # -------------------------------------------------------------------------------------------------------------
 
 import albumentations as A
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
-data_path = os.path.join(base_path, 'ksi')
+data_path = os.path.join(base_path, 'kw')
 
 # cls_obj = 'flexcrop2front_aug05sunflare'
 # cls_obj = 'flexcrop2left_aug05sunflare'
@@ -497,7 +497,7 @@ for i in range(len(img_list)):
 # rename data file
 # -------------------------------------------------------------------------------------------------------------
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
 data_path = os.path.join(base_path, 'mvtec_ad2')
 
@@ -537,9 +537,9 @@ for i in range(len(img_list)):
 
 import albumentations as A
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad'
+base_path = '~/mvtec_ad'
 
-data_path = os.path.join(base_path, 'ksi')
+data_path = os.path.join(base_path, 'kw')
 
 cls_obj = 'flexcrop2right_sunflare_param'
 

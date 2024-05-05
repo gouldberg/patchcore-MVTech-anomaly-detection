@@ -161,3 +161,4 @@ cython_debug/
 
 # data
 00_results/
+00_convert_middle_layer_pytorch_model_to_tflite/convert_mobilenetv2_patchcore.py

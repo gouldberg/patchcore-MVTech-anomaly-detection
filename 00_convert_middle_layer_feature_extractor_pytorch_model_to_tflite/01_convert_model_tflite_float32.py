@@ -20,7 +20,7 @@ import tensorflow as tf
 # base setting
 # ---------------------------------------------------------------------------------------------------------------
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\patchcore'
+base_path = '~mvtec_ad/patchcore'
 
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ image_size = 224
 input_shape = (batchsize, 3, image_size, image_size)
 print(input_shape)
 
-onnx_ori_path = os.path.join(base_path, 'model\\model_mobilenetv2100_orig.onnx')
+onnx_ori_path = os.path.join(base_path, 'model/model_mobilenetv2100_orig.onnx')
 
 torch.onnx.export(model=extractor,
                   args=torch.ones(input_shape),
@@ -99,7 +99,7 @@ torch.onnx.export(model=extractor,
 # onnx simplify
 # ---------------------------------------------------------------------------------------------------------------
 
-onnx_path = os.path.join(base_path, 'model\\model_mobilenetv2100.onnx')
+onnx_path = os.path.join(base_path, 'model/model_mobilenetv2100.onnx')
 
 os.system(f'python -m onnxsim {onnx_ori_path} {onnx_path}')
 
@@ -108,7 +108,7 @@ os.system(f'python -m onnxsim {onnx_ori_path} {onnx_path}')
 # convert onnx to vino
 # ---------------------------------------------------------------------------------------------------------------
 
-vino_path = os.path.join(base_path, 'model\\model_mobilenetv2100.vino')
+vino_path = os.path.join(base_path, 'model/model_mobilenetv2100.vino')
 
 # os.system('python3 ${INTEL_OPENVINO_DIR}/deployment_tools/model_optimizer/mo.py ' \
 #           f'--input_model {onnx_path} ' \
@@ -126,9 +126,9 @@ os.system('python ./venv/Lib/site-packages/openvino/tools/mo/main.py ' \
 # convert openvino to tf
 # ---------------------------------------------------------------------------------------------------------------
 
-tf_path = os.path.join(base_path, 'model\\model.tf')
+tf_path = os.path.join(base_path, 'model/model.tf')
 
-os.system(f'python ./venv/Scripts/openvino2tensorflow --model_path {vino_path}\\model_mobilenetv2100.xml ' \
+os.system(f'python ./venv/Scripts/openvino2tensorflow --model_path {vino_path}/model_mobilenetv2100.xml ' \
           f'--model_output_path {tf_path} ' \
           '--output_saved_model')
 
@@ -150,7 +150,7 @@ os.system(f'python ./venv/Scripts/openvino2tensorflow --model_path {vino_path}\\
 # convert tf to tflite  (float32)
 # ---------------------------------------------------------------------------------------------------------------
 
-tflite_f32_path = os.path.join(base_path, 'model\\model_f32.tflite')
+tflite_f32_path = os.path.join(base_path, 'model/model_f32.tflite')
 
 converter = tf.lite.TFLiteConverter.from_saved_model(tf_path)
 

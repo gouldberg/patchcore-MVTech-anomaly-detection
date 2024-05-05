@@ -8,7 +8,7 @@ import numpy as np
 import tensorflow as tf
 
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\patchcore'
+base_path = '~/mvtec_ad/patchcore'
 
 
 ##################################################################################################################
@@ -16,11 +16,11 @@ base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\patchcore'
 # load and prepare for tflite model
 # ----------------------------------------------------------------------------------------------------------------
 
-# model_path = os.path.join(base_path, 'model\\model_ext_f32.tflite')
-# model_path = os.path.join(base_path, 'model\\model_f32.tflite')
-# model_path = os.path.join(base_path, 'model\\model_uint8.tflite')
-# model_path = os.path.join(base_path, 'model\\model_uint8_screw.tflite')
-model_path = os.path.join(base_path, 'model\\model_uint8_ksiflexfront.tflite')
+# model_path = os.path.join(base_path, 'model/model_ext_f32.tflite')
+# model_path = os.path.join(base_path, 'model/model_f32.tflite')
+# model_path = os.path.join(base_path, 'model/model_uint8.tflite')
+# model_path = os.path.join(base_path, 'model/model_uint8_screw.tflite')
+model_path = os.path.join(base_path, 'model/model_uint8_kwflexfront.tflite')
 
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD = [0.229, 0.224, 0.225]
@@ -66,7 +66,7 @@ print(mv_zero_point)
 # ----------------------------------------------------------------------------------------------------------------
 
 # data set path
-data_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\mvtec_ad2'
+data_path = '~/mvtec_ad/mvtec_ad2'
 
 # mvtec_classname = 'screw'
 mvtec_classname = 'tmp'

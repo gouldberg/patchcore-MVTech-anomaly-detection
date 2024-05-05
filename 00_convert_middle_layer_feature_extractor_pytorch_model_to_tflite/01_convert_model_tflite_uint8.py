@@ -19,7 +19,7 @@ import itertools
 # base setting
 # ---------------------------------------------------------------------------------------------------------------
 
-base_path = 'C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\patchcore'
+base_path = '~/mvtec_ad/patchcore'
 
 
 # ---------------------------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@ image_size = 224
 input_shape = (batchsize, 3, image_size, image_size)
 print(input_shape)
 
-onnx_ori_path = os.path.join(base_path, 'model\\model_mobilenetv2100_orig.onnx')
+onnx_ori_path = os.path.join(base_path, 'model/model_mobilenetv2100_orig.onnx')
 
 torch.onnx.export(model=extractor,
                   args=torch.ones(input_shape),
@@ -97,7 +97,7 @@ torch.onnx.export(model=extractor,
 # onnx simplify
 # ---------------------------------------------------------------------------------------------------------------
 
-onnx_path = os.path.join(base_path, 'model\\model_mobilenetv2100.onnx')
+onnx_path = os.path.join(base_path, 'model/model_mobilenetv2100.onnx')
 
 os.system(f'python -m onnxsim {onnx_ori_path} {onnx_path}')
 
@@ -106,7 +106,7 @@ os.system(f'python -m onnxsim {onnx_ori_path} {onnx_path}')
 # convert onnx to vino
 # ---------------------------------------------------------------------------------------------------------------
 
-vino_path = os.path.join(base_path, 'model\\model_mobilenetv2100.vino')
+vino_path = os.path.join(base_path, 'model/model_mobilenetv2100.vino')
 
 # os.system('python3 ${INTEL_OPENVINO_DIR}/deployment_tools/model_optimizer/mo.py ' \
 #           f'--input_model {onnx_path} ' \
@@ -124,9 +124,9 @@ os.system('python ./venv/Lib/site-packages/openvino/tools/mo/main.py ' \
 # convert openvino to tf
 # ---------------------------------------------------------------------------------------------------------------
 
-tf_path = os.path.join(base_path, 'model\\model.tf')
+tf_path = os.path.join(base_path, 'model/model.tf')
 
-os.system(f'python ./venv/Scripts/openvino2tensorflow --model_path {vino_path}\\model_mobilenetv2100.xml ' \
+os.system(f'python ./venv/Scripts/openvino2tensorflow --model_path {vino_path}/model_mobilenetv2100.xml ' \
           f'--model_output_path {tf_path} ' \
           '--output_saved_model')
 
@@ -148,20 +148,20 @@ os.system(f'python ./venv/Scripts/openvino2tensorflow --model_path {vino_path}\\
 # prepare representative data
 # ---------------------------------------------------------------------------------------------------------------
 
-# data_path = os.path.join('C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\mvtec_ad2')
-# data_path = os.path.join('C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\image_ks')
-# data_path = os.path.join('C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\image_ks\\flexcable')
-data_path = os.path.join('C:\\Users\\kosei-wada\\Desktop\\mvtec_ad\\mpdd')
+# data_path = os.path.join('~/mvtec_ad/mvtec_ad2')
+# data_path = os.path.join('~/mvtec_ad/image_kw')
+# data_path = os.path.join('~/mvtec_ad/image_kw/flexcable')
+data_path = os.path.join('~/mvtec_ad/mpdd')
 
 texture_classes = ["carpet", "grid", "leather", "tile", "wood"]
 object_classes = ["cable", "capsule", "hazelnut", "metal_nut", "pill", "screw", "toothbrush", "transistor", "zipper"]
 others = ["bottle"]
 others2 = ["flexcrop"]
-others3 = ['ksiflexfront', 'ksiflexright', 'ksiflexleft']
-others4 = ['ksiflexall']
+others3 = ['kwflexfront', 'kwflexright', 'kwflexleft']
+others4 = ['kwflexall']
 others5 = ['flexcrop2']
-others6 = ['ksiflexfront2', 'ksiflexright2', 'ksiflexleft2']
-others7 = ['ksiflexall2']
+others6 = ['kwflexfront2', 'kwflexright2', 'kwflexleft2']
+others7 = ['kwflexall2']
 others8 = ['cbcase1']
 others9 = ['fccase2']
 others10 = ['bracket_black', 'bracket_brown', 'bracket_white', 'connector', 'metal_plate', 'tubes']
@@ -191,8 +191,8 @@ for cls_obj in mvtec_class:
     # convert tf to tflite  (uint8)
     # ---------------------------------------------------------------------------------------------------------------
 
-    tflite_path = os.path.join(base_path, f'model\\model_uint8_{cls_obj}.tflite')
-    # tflite_path = os.path.join(base_path, f'model\\model_uint8_mvtecall.tflite')
+    tflite_path = os.path.join(base_path, f'model/model_uint8_{cls_obj}.tflite')
+    # tflite_path = os.path.join(base_path, f'model/model_uint8_mvtecall.tflite')
 
     MEAN = np.array([0.485, 0.456, 0.406])[None, None, None, :]
     STD = np.array([0.229, 0.224, 0.225])[None, None, None, :]
