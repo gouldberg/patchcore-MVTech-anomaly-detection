@@ -1,7 +1,7 @@
 # patchcore-MVTech-anomaly-detection
 - I have rearranged original patchcore codes (https://github.com/amazon-science/patchcore-inspection) in order to apply this State-of-the-Art approach more freely/lightly.
 - Also I have tried to re-engineer it to make the model/approach applicable to edge device
-  - **lighter feature extractor applicable edge device, preferring MobileNet** over WideResnet originally applied in patchcore. But some parameter tuning is required due to narrow channels of MobileNet.
+  - **lighter feature extractor applicable to edge device, preferring MobileNet** over WideResnet originally applied in patchcore. But some parameter tuning is required due to narrow channels of MobileNet.
   - **convert pytorch model to tflite model (8 bit model)** via onnix converter.
   - **the relevant scripts are found in folder**:
     - '00_convert_middle_layer_feature_extractor_pytorch_model_to_tflite'
